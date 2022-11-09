@@ -4,7 +4,6 @@ with open("normtext.txt", "r", encoding='utf-8') as f1:
     lines = f1.read()
 ru_Down = list("абвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyz")
 ru_Up = list("АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯABCDEFGHIJKLMNOPQRSTUVWXYZ")
-print(lines)
 wordsPoints = lines.split(' ')
 for ii, vv in enumerate(wordsPoints):
     wordsPoints[ii] = [vv]
@@ -23,7 +22,6 @@ for i1, v1 in enumerate(wordsPoints):
                     wordsPoints[i1] = sum(wordsPoints[i1], [])
                     break
 wordsPoints = sum(wordsPoints, [])
-print(1, wordsPoints)
 for index, word in enumerate(wordsPoints):
     count = 0
     for letter in word:
@@ -45,7 +43,6 @@ for index, word in enumerate(wordsPoints):
         wordsPoints[index] = word[0] + "".join(center) + word[count - 1:]
     else:
         continue
-print(2, wordsPoints)
 last_simb = 0
 end = wordsPoints[0]
 for i1, v1 in enumerate(wordsPoints):
@@ -59,6 +56,5 @@ for i1, v1 in enumerate(wordsPoints):
             end = end + ' ' + wordsPoints[i1 + 1]
         else:
             break
-print(f"\n{end}")
 with open("izmentext.txt", "w", encoding='utf-8') as f2:
     f2.write(end)
